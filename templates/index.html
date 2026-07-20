@@ -1,0 +1,80 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MNIST Digit Predictor</title>
+
+    <style>
+
+        body{
+            font-family: Arial;
+            text-align:center;
+            margin-top:40px;
+            background:#f2f2f2;
+        }
+
+        .container{
+            background:white;
+            width:400px;
+            margin:auto;
+            padding:30px;
+            border-radius:10px;
+            box-shadow:0px 0px 10px gray;
+        }
+
+        h1{
+            color:#333;
+        }
+
+        input{
+            margin:20px;
+        }
+
+        button{
+            padding:10px 20px;
+            background:blue;
+            color:white;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+        img{
+            margin-top:20px;
+            width:200px;
+            border:2px solid black;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Handwritten Digit Prediction</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+
+        <input type="file" name="file" required>
+
+        <br>
+
+        <button type="submit">Predict</button>
+
+    </form>
+
+    {% if prediction is not none %}
+
+        <h2>Predicted Digit: {{ prediction }}</h2>
+
+        <img src="{{ image_path }}">
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
